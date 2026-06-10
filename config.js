@@ -1,7 +1,7 @@
 
 
 window.SITE_CONFIG = {
-  tokenAddress: "AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
+  tokenAddress: "7weWv3ci8SmicHSvifvNxMw48mtgbkcUiov2uXeNiGgA",
 
   tokenName: "NvidiaIntelGoogleGrokAMD",
   tokenTicker: "$NIGGA",
@@ -11,7 +11,7 @@ window.SITE_CONFIG = {
   preferredDex: "meteora",
 
   links: {
-    buy: "https://jup.ag/swap/SOL-AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
+    buy: "https://jup.ag/swap/SOL-7weWv3ci8SmicHSvifvNxMw48mtgbkcUiov2uXeNiGgA",
   },
 
   refreshMs: 10000,
