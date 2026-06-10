@@ -241,6 +241,18 @@ header.masthead {
 .btn.primary { background: var(--nvidia); border-color: var(--nvidia); color: #fff; }
 .btn.primary:hover { background: var(--ink); border-color: var(--ink); }
 
+.reward-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin: 18px auto 0;
+  max-width: 560px;
+  padding: 10px 14px;
+  background: var(--nvidia-tint);
+  border: 1px solid var(--nvidia);
+  color: #3f6300;
+}
+
 /* ---------- Section headings ---------- */
 
 section { margin-top: 64px; }
@@ -414,6 +426,31 @@ table.summary th {
 }
 
 table.summary tr:nth-child(even) td { background: var(--intel-tint); }
+
+/* tabela de alocacao dos buybacks — cores por empresa */
+
+table.summary.alloc td:first-child { font-weight: 700; }
+
+table.summary.alloc tr.co-nvidia td { background: var(--nvidia-tint); }
+table.summary.alloc tr.co-nvidia td:first-child { color: #4e7a00; }
+
+table.summary.alloc tr.co-intel td { background: var(--intel-tint); }
+table.summary.alloc tr.co-intel td:first-child { color: var(--intel); }
+
+table.summary.alloc tr.co-google td { background: var(--google-blue-tint); }
+table.summary.alloc tr.co-google td:first-child { color: var(--google-blue); }
+
+table.summary.alloc tr.co-amd td { background: var(--amd-tint); }
+table.summary.alloc tr.co-amd td:first-child { color: #b8161c; }
+
+table.summary.alloc tr.co-grok td { background: var(--grok-tint); color: var(--ink-soft); }
+table.summary.alloc tr.co-grok td:first-child { color: var(--grok); }
+
+.footnote {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
 
 /* ---------- Footer ---------- */
 
