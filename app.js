@@ -30,7 +30,7 @@
   // ---------- aplica config estatica na pagina ----------
 
   function applyConfig() {
-    document.title = cfg.tokenTicker + " — Live Filing";
+    document.title = cfg.tokenTicker;
     $("ticker-top").textContent = cfg.tokenTicker;
     $("token-name").textContent = cfg.tokenTicker;
     $("tagline").textContent = cfg.tagline;
