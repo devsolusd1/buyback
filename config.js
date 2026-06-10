@@ -7,8 +7,7 @@
 
 window.SITE_CONFIG = {
   // Endereco (mint) do token na Solana.
-  // DEMO: BONK — troque pelo endereco do seu token quando criar na Meteora.
-  tokenAddress: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+  tokenAddress: "AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
 
   // Identidade do token
   tokenName: "BUYBACK",
@@ -21,7 +20,7 @@ window.SITE_CONFIG = {
 
   // Links dos botoes (deixe "" para esconder o botao)
   links: {
-    buy: "https://jup.ag/swap/SOL-DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    buy: "https://jup.ag/swap/SOL-AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
   },
 
   // Intervalo de atualizacao dos dados (em milissegundos)
