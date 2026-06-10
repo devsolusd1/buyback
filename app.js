@@ -24,7 +24,6 @@
     return (v > 0 ? "+" : "") + v.toFixed(2) + "%";
   };
 
-  // ---------- aplica config estatica na pagina ----------
 
   function applyConfig() {
     document.title = cfg.tokenTicker;
@@ -77,7 +76,7 @@
     if (el.textContent !== text) {
       el.textContent = text;
       el.parentElement.classList.remove("flash");
-      void el.parentElement.offsetWidth; // reinicia a animacao
+      void el.parentElement.offsetWidth; 
       el.parentElement.classList.add("flash");
     }
     el.classList.remove("up", "down");
