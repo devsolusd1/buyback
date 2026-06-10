@@ -1,0 +1,456 @@
+/* ============================================================
+   $BUYBACK — SEC-filing parody theme
+   ============================================================ */
+
+:root {
+  --paper: #f7f5f0;
+  --ink: #111111;
+  --ink-soft: #444444;
+  --rule: #111111;
+  --accent: #76b900;   /* NVIDIA green = "up" */
+  --accent-red: #ed1c24; /* AMD red = "down" */
+  --mono: "Courier New", Courier, monospace;
+  --serif: Georgia, "Times New Roman", serif;
+
+  /* brand colors do consorcio */
+  --nvidia: #76b900;
+  --intel: #0068b5;
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
+  --grok: #111111;
+  --amd: #ed1c24;
+
+  /* tintas suaves (fundos) */
+  --nvidia-tint: rgba(118, 185, 0, 0.08);
+  --intel-tint: rgba(0, 104, 181, 0.07);
+  --google-blue-tint: rgba(66, 133, 244, 0.08);
+  --google-yellow-tint: rgba(251, 188, 5, 0.10);
+  --google-green-tint: rgba(52, 168, 83, 0.08);
+  --grok-tint: rgba(17, 17, 17, 0.05);
+  --amd-tint: rgba(237, 28, 36, 0.06);
+
+  --consortium-gradient: linear-gradient(90deg,
+    var(--nvidia) 0 20%, var(--intel) 20% 40%, var(--google-yellow) 40% 60%,
+    var(--grok) 60% 80%, var(--amd) 80% 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* ---------- Brand stripe (as empresas mandam no tema) ---------- */
+
+.brandbar {
+  display: flex;
+  height: 8px;
+}
+
+.brandbar span { flex: 1; }
+.brandbar .b-nvidia { background: var(--nvidia); }
+.brandbar .b-intel { background: var(--intel); }
+.brandbar .b-google {
+  background: linear-gradient(90deg,
+    var(--google-blue) 0 25%, var(--google-red) 25% 50%,
+    var(--google-yellow) 50% 75%, var(--google-green) 75% 100%);
+}
+.brandbar .b-grok { background: var(--grok); }
+.brandbar .b-amd { background: var(--amd); }
+
+/* ---------- Logos do consorcio ---------- */
+
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 22px 0 10px;
+}
+
+.logo-x {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+}
+
+.wm-nvidia {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--nvidia);
+  letter-spacing: 0.06em;
+}
+
+.wm-intel {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--intel);
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 27px;
+}
+
+.wm-google { font-family: Arial, Helvetica, sans-serif; font-weight: 500; }
+.wm-google i { font-style: normal; }
+.wm-google i:nth-child(1) { color: var(--google-blue); }
+.wm-google i:nth-child(2) { color: var(--google-red); }
+.wm-google i:nth-child(3) { color: var(--google-yellow); }
+.wm-google i:nth-child(4) { color: var(--google-blue); }
+.wm-google i:nth-child(5) { color: var(--google-green); }
+.wm-google i:nth-child(6) { color: var(--google-red); }
+
+.wm-grok {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--grok);
+  font-weight: 800;
+}
+
+.wm-amd {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--amd);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 3px solid;
+  border-image: var(--consortium-gradient) 1;
+  padding-bottom: 10px;
+  margin-bottom: 36px;
+}
+
+.topbar span:first-child { color: var(--nvidia); font-weight: 700; }
+.topbar #ticker-top { color: var(--intel); font-weight: 700; }
+.topbar span:last-child { color: var(--amd); }
+
+.topbar .live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 6px;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+/* ---------- Header ---------- */
+
+header.masthead {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.masthead .form-type {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--intel);
+}
+
+.masthead h1 {
+  font-size: clamp(42px, 9vw, 84px);
+  letter-spacing: 0.02em;
+  margin: 8px 0 4px;
+}
+
+.masthead .tagline {
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink-soft);
+}
+
+.masthead .filing-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 18px;
+  color: var(--ink-soft);
+}
+
+.masthead .contract {
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 8px;
+  word-break: break-all;
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--google-yellow-tint);
+  border: 1px dashed var(--google-yellow);
+}
+
+.masthead .contract:hover { text-decoration: underline; }
+
+/* ---------- Buttons ---------- */
+
+.cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 28px 0 8px;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 12px 22px;
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn:hover { background: var(--ink); color: var(--paper); }
+
+.btn.primary { background: var(--nvidia); border-color: var(--nvidia); color: #fff; }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+
+/* ---------- Section headings ---------- */
+
+section { margin-top: 64px; }
+
+.exhibit-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+h2 {
+  font-size: 28px;
+  border-bottom: 3px solid;
+  border-image: var(--consortium-gradient) 1;
+  padding-bottom: 8px;
+  margin: 4px 0 24px;
+}
+
+/* ---------- Live data board ---------- */
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  border: 2px solid var(--ink);
+}
+
+.cell {
+  padding: 18px 16px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  border-top: 4px solid transparent;
+}
+
+.cell:nth-child(1) { border-top-color: var(--nvidia); background: var(--nvidia-tint); }
+.cell:nth-child(2) { border-top-color: var(--intel); background: var(--intel-tint); }
+.cell:nth-child(3) { border-top-color: var(--google-blue); background: var(--google-blue-tint); }
+.cell:nth-child(4) { border-top-color: var(--google-yellow); background: var(--google-yellow-tint); }
+.cell:nth-child(5) { border-top-color: var(--grok); background: var(--grok-tint); }
+.cell:nth-child(6) { border-top-color: var(--amd); background: var(--amd-tint); }
+
+.cell .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.cell .value {
+  font-family: var(--mono);
+  font-size: 26px;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cell .value.up { color: var(--accent); }
+.cell .value.down { color: var(--accent-red); }
+
+.board-footer {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flash { animation: flash 0.6s ease; }
+@keyframes flash {
+  0% { background: rgba(11, 110, 58, 0.18); }
+  100% { background: transparent; }
+}
+
+/* ---------- Chart ---------- */
+
+.chart-wrap {
+  border: 2px solid var(--ink);
+  height: 460px;
+  position: relative;
+}
+
+.chart-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Exhibits por empresa ---------- */
+
+.exhibit-card {
+  border-left: 6px solid var(--ink);
+  padding: 20px 20px 12px;
+}
+
+.exhibit-card h2 { border-image: none; border-bottom: 1px solid rgba(17, 17, 17, 0.2); }
+
+.exhibit-card .co-tag {
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+.exhibit-card.co-nvidia { border-left-color: var(--nvidia); background: var(--nvidia-tint); }
+.exhibit-card.co-nvidia .co-tag, .exhibit-card.co-nvidia h2 { color: #4e7a00; }
+
+.exhibit-card.co-intel { border-left-color: var(--intel); background: var(--intel-tint); }
+.exhibit-card.co-intel .co-tag, .exhibit-card.co-intel h2 { color: var(--intel); }
+
+.exhibit-card.co-google {
+  border-left: none;
+  padding-left: 26px;
+  position: relative;
+  background: var(--google-blue-tint);
+}
+.exhibit-card.co-google::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg,
+    var(--google-blue) 0 25%, var(--google-red) 25% 50%,
+    var(--google-yellow) 50% 75%, var(--google-green) 75% 100%);
+}
+.exhibit-card.co-google .co-tag, .exhibit-card.co-google h2 { color: var(--google-blue); }
+
+.exhibit-card.co-grok { border-left-color: var(--grok); background: var(--grok-tint); }
+.exhibit-card.co-grok .co-tag, .exhibit-card.co-grok h2 { color: var(--grok); }
+
+.exhibit-card.co-amd { border-left-color: var(--amd); background: var(--amd-tint); }
+.exhibit-card.co-amd .co-tag, .exhibit-card.co-amd h2 { color: #b8161c; }
+
+/* ---------- Filing body text ---------- */
+
+.filing p { margin-bottom: 16px; }
+
+.filing .clause {
+  font-family: var(--mono);
+  font-size: 13px;
+  margin-bottom: 14px;
+  padding-left: 16px;
+}
+
+table.summary {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 13px;
+  margin: 16px 0;
+}
+
+table.summary th, table.summary td {
+  border: 1px solid var(--ink);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+table.summary th {
+  background: var(--intel);
+  border-color: var(--intel);
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+table.summary tr:nth-child(even) td { background: var(--intel-tint); }
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 80px;
+  border-top: 3px solid;
+  border-image: var(--consortium-gradient) 1;
+  padding-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- Toast ---------- */
+
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 10px 18px;
+  opacity: 0;
+  transition: transform 0.25s, opacity 0.25s;
+  pointer-events: none;
+}
+
+#toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .cell .value { font-size: 20px; }
+  .chart-wrap { height: 360px; }
+}
