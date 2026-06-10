@@ -1,7 +1,4 @@
-/* ============================================================
-   $BUYBACK — dados em tempo real via DexScreener
-   (cobre pools da Meteora; sem chave de API)
-   ============================================================ */
+
 
 (function () {
   const cfg = window.SITE_CONFIG;
@@ -60,7 +57,6 @@
     setTimeout(() => t.classList.remove("show"), 1800);
   }
 
-  // ---------- dados ao vivo ----------
 
   let chartLoaded = false;
   let lastPrice = null;
