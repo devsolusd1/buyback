@@ -1,8 +1,8 @@
 window.SITE_CONFIG = {
   tokenAddress: "4QFGofjhC6M8pPUAwQBkQZK2bR9rqMdqCr71rTb6iGGA",
 
-  tokenName: "BUYBACK",
-  tokenTicker: "$BUYBACK",
+  tokenName: "NIGGA",
+  tokenTicker: "$NIGGA",
   tagline: "Five companies walked into a data center. One token walked out.",
 
   preferredDex: "meteora",
