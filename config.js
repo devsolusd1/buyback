@@ -7,7 +7,7 @@
 
 window.SITE_CONFIG = {
   // Endereco (mint) do token na Solana.
-  tokenAddress: "AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
+  tokenAddress: "4QFGofjhC6M8pPUAwQBkQZK2bR9rqMdqCr71rTb6iGGA",
 
   // Identidade do token
   tokenName: "BUYBACK",
@@ -20,7 +20,7 @@ window.SITE_CONFIG = {
 
   // Links dos botoes (deixe "" para esconder o botao)
   links: {
-    buy: "https://jup.ag/swap/SOL-AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
+    buy: "https://jup.ag/swap/SOL-4QFGofjhC6M8pPUAwQBkQZK2bR9rqMdqCr71rTb6iGGA",
   },
 
   // ----------------------------------------------------------
@@ -29,11 +29,11 @@ window.SITE_CONFIG = {
   // "ticker" e o nome exibido no card (troque quando definir).
   // ----------------------------------------------------------
   tributes: [
-    { id: "nvidia", company: "NVIDIA", ticker: "TBA", address: "" },
-    { id: "intel",  company: "Intel",  ticker: "TBA", address: "" },
-    { id: "google", company: "Google", ticker: "TBA", address: "" },
-    { id: "grok",   company: "Grok",   ticker: "TBA", address: "" },
-    { id: "amd",    company: "AMD",    ticker: "TBA", address: "" },
+    { id: "nvidia", company: "NVIDIA", ticker: "TBA", address: "E5MFjRQf8Zd86FAcjnxs9JEh6qWGEfhr2juLxrM7AMa" },
+    { id: "intel",  company: "Intel",  ticker: "TBA", address: "VTwqVfiWtqCQGzsbkFAZMCt8WaLdmb99CegteRCwkka" },
+    { id: "google", company: "Google", ticker: "TBA", address: "8hnWfipR9KJxKJ69YVQH3XfShbpDGsREaVzzAvmN7ja" },
+    { id: "grok",   company: "Grok",   ticker: "TBA", address: "v81r12vSgm2NKUxr3ajvqtgYbVDyPt1PR6w3sarAYFa" },
+    { id: "amd",    company: "AMD",    ticker: "TBA", address: "Ss2nYT69uU5vx7gGaoXuTKgNQY9Wqvq9st1PfRj2ADa" },
   ],
 
   // Intervalo de atualizacao dos dados (em milissegundos)
