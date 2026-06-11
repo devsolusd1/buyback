@@ -1,8 +1,3 @@
-/* ============================================================
-   $BUYBACK — dados em tempo real via DexScreener
-   (cobre pools da Meteora; sem chave de API)
-   ============================================================ */
-
 (function () {
   const cfg = window.SITE_CONFIG;
 
@@ -26,8 +21,6 @@
     const v = Number(n);
     return (v > 0 ? "+" : "") + v.toFixed(2) + "%";
   };
-
-  // ---------- aplica config estatica na pagina ----------
 
   function applyConfig() {
     document.title = cfg.tokenTicker;
@@ -59,8 +52,6 @@
     t.classList.add("show");
     setTimeout(() => t.classList.remove("show"), 1800);
   }
-
-  // ---------- tokens-homenagem ----------
 
   const wordmarks = {
     nvidia: '<span class="wordmark wm-nvidia">NVIDIA</span>',
@@ -126,12 +117,8 @@
         if (ch > 0) chEl.classList.add("up");
         if (ch < 0) chEl.classList.add("down");
       }
-    } catch (err) {
-      /* mantem os tracos; tenta de novo no proximo ciclo */
-    }
+    } catch (err) {}
   }
-
-  // ---------- dados ao vivo ----------
 
   let chartLoaded = false;
   let lastPrice = null;
@@ -142,8 +129,6 @@
     if (!pairs || !pairs.length) return null;
     const solana = pairs.filter((p) => p.chainId === "solana");
     let pool = solana.length ? solana : pairs;
-    // pools cotados em SOL/USDC/USDT tem preco confiavel; pools cotados
-    // em tokens exoticos podem reportar preco/mcap distorcidos
     const majors = pool.filter((p) =>
       MAJOR_QUOTES.includes((p.quoteToken?.symbol || "").toUpperCase())
     );
@@ -160,7 +145,7 @@
     if (el.textContent !== text) {
       el.textContent = text;
       el.parentElement.classList.remove("flash");
-      void el.parentElement.offsetWidth; // reinicia a animacao
+      void el.parentElement.offsetWidth;
       el.parentElement.classList.add("flash");
     }
     el.classList.remove("up", "down");

@@ -1,18 +1,13 @@
-/* ============================================================
-   $BUYBACK — SEC-filing parody theme
-   ============================================================ */
-
 :root {
   --paper: #f7f5f0;
   --ink: #111111;
   --ink-soft: #444444;
   --rule: #111111;
-  --accent: #76b900;   /* NVIDIA green = "up" */
-  --accent-red: #ed1c24; /* AMD red = "down" */
+  --accent: #76b900;
+  --accent-red: #ed1c24;
   --mono: "Courier New", Courier, monospace;
   --serif: Georgia, "Times New Roman", serif;
 
-  /* brand colors do consorcio */
   --nvidia: #76b900;
   --intel: #0068b5;
   --google-blue: #4285f4;
@@ -22,7 +17,6 @@
   --grok: #111111;
   --amd: #ed1c24;
 
-  /* tintas suaves (fundos) */
   --nvidia-tint: rgba(118, 185, 0, 0.08);
   --intel-tint: rgba(0, 104, 181, 0.07);
   --google-blue-tint: rgba(66, 133, 244, 0.08);
@@ -53,8 +47,6 @@ body {
   padding: 48px 24px 96px;
 }
 
-/* ---------- Brand stripe (as empresas mandam no tema) ---------- */
-
 .brandbar {
   display: flex;
   height: 8px;
@@ -70,8 +62,6 @@ body {
 }
 .brandbar .b-grok { background: var(--grok); }
 .brandbar .b-amd { background: var(--amd); }
-
-/* ---------- Logos do consorcio ---------- */
 
 .logos {
   display: flex;
@@ -130,8 +120,6 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* ---------- Top bar ---------- */
-
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -164,8 +152,6 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.25; }
 }
-
-/* ---------- Header ---------- */
 
 header.masthead {
   text-align: center;
@@ -213,8 +199,6 @@ header.masthead {
 
 .masthead .contract:hover { text-decoration: underline; }
 
-/* ---------- Buttons ---------- */
-
 .cta-row {
   display: flex;
   justify-content: center;
@@ -253,8 +237,6 @@ header.masthead {
   color: #3f6300;
 }
 
-/* ---------- Section headings ---------- */
-
 section { margin-top: 64px; }
 
 .exhibit-label {
@@ -272,8 +254,6 @@ h2 {
   padding-bottom: 8px;
   margin: 4px 0 24px;
 }
-
-/* ---------- Live data board ---------- */
 
 .board {
   display: grid;
@@ -330,8 +310,6 @@ h2 {
   100% { background: transparent; }
 }
 
-/* ---------- Chart ---------- */
-
 .chart-wrap {
   border: 2px solid var(--ink);
   height: 460px;
@@ -345,8 +323,6 @@ h2 {
   height: 100%;
   border: 0;
 }
-
-/* ---------- Tribute tokens ---------- */
 
 .section-intro {
   font-style: italic;
@@ -458,8 +434,6 @@ a.t-buy:hover { background: var(--nvidia); }
   border: 1px dashed var(--ink-soft);
 }
 
-/* ---------- Exhibits por empresa ---------- */
-
 .exhibit-card {
   border-left: 6px solid var(--ink);
   padding: 20px 20px 12px;
@@ -503,8 +477,6 @@ a.t-buy:hover { background: var(--nvidia); }
 .exhibit-card.co-amd { border-left-color: var(--amd); background: var(--amd-tint); }
 .exhibit-card.co-amd .co-tag, .exhibit-card.co-amd h2 { color: #b8161c; }
 
-/* ---------- Filing body text ---------- */
-
 .filing p { margin-bottom: 16px; }
 
 .filing .clause {
@@ -539,8 +511,6 @@ table.summary th {
 
 table.summary tr:nth-child(even) td { background: var(--intel-tint); }
 
-/* tabela de alocacao dos buybacks — cores por empresa */
-
 table.summary.alloc td:first-child { font-weight: 700; }
 
 table.summary.alloc tr.co-nvidia td { background: var(--nvidia-tint); }
@@ -564,8 +534,6 @@ table.summary.alloc tr.co-grok td:first-child { color: var(--grok); }
   font-size: 15px;
 }
 
-/* ---------- Footer ---------- */
-
 footer {
   margin-top: 80px;
   border-top: 3px solid;
@@ -576,8 +544,6 @@ footer {
   color: var(--ink-soft);
   text-align: center;
 }
-
-/* ---------- Toast ---------- */
 
 #toast {
   position: fixed;
