@@ -162,7 +162,7 @@
       const pair = pickPair(data.pairs);
       if (!pair) {
         $("board-status").textContent =
-          "nenhum pool encontrado para este token ainda — verifique o endereco no config.js";
+          "no pool found for this token yet — check the address in config.js";
         return;
       }
 
@@ -182,7 +182,7 @@
       $("board-status").textContent =
         "pool: " + pair.dexId + " · " + pair.baseToken.symbol + "/" + pair.quoteToken.symbol;
       $("board-updated").textContent =
-        "atualizado " + new Date().toLocaleTimeString();
+        "updated " + new Date().toLocaleTimeString();
 
       if (cfg.showChart && !chartLoaded && pair.pairAddress) {
         $("chart-frame").src =
@@ -191,7 +191,7 @@
         chartLoaded = true;
       }
     } catch (err) {
-      $("board-status").textContent = "erro ao buscar dados: " + err.message;
+      $("board-status").textContent = "data fetch error: " + err.message;
     }
   }
 
