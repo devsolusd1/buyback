@@ -23,6 +23,19 @@ window.SITE_CONFIG = {
     buy: "https://jup.ag/swap/SOL-AWJCTuS8ECskSu4e6HDUmgzX7HhzVRNvRdvHKj4NiGGA",
   },
 
+  // ----------------------------------------------------------
+  // TOKENS-HOMENAGEM — um token para cada acao do consorcio.
+  // Cole o CA de cada um em "address" quando lancar.
+  // "ticker" e o nome exibido no card (troque quando definir).
+  // ----------------------------------------------------------
+  tributes: [
+    { id: "nvidia", company: "NVIDIA", ticker: "TBA", address: "" },
+    { id: "intel",  company: "Intel",  ticker: "TBA", address: "" },
+    { id: "google", company: "Google", ticker: "TBA", address: "" },
+    { id: "grok",   company: "Grok",   ticker: "TBA", address: "" },
+    { id: "amd",    company: "AMD",    ticker: "TBA", address: "" },
+  ],
+
   // Intervalo de atualizacao dos dados (em milissegundos)
   refreshMs: 10000,
 

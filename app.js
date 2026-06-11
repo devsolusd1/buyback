@@ -60,15 +60,94 @@
     setTimeout(() => t.classList.remove("show"), 1800);
   }
 
+  // ---------- tokens-homenagem ----------
+
+  const wordmarks = {
+    nvidia: '<span class="wordmark wm-nvidia">NVIDIA</span>',
+    intel: '<span class="wordmark wm-intel">intel</span>',
+    google: '<span class="wordmark wm-google"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span>',
+    grok: '<span class="wordmark wm-grok">Grok</span>',
+    amd: '<span class="wordmark wm-amd">AMD</span>',
+  };
+
+  function renderTributes() {
+    const grid = $("tribute-grid");
+    if (!grid) return;
+    grid.innerHTML = "";
+    for (const t of cfg.tributes || []) {
+      const card = document.createElement("div");
+      card.className = "tribute-card co-" + t.id;
+      const hasCa = !!t.address;
+      card.innerHTML =
+        '<div class="t-head">' + (wordmarks[t.id] || t.company) +
+        '<span class="t-ticker">' + t.ticker + "</span></div>" +
+        '<div class="t-ca" data-addr="' + (t.address || "") + '" title="click to copy">' +
+        (hasCa ? "CA: " + t.address : "CA: TBA — launching soon") + "</div>" +
+        '<div class="t-stats">' +
+        '<div class="t-stat"><span class="label">Price</span><span class="value" id="t-' + t.id + '-price">—</span></div>' +
+        '<div class="t-stat"><span class="label">MCap</span><span class="value" id="t-' + t.id + '-mcap">—</span></div>' +
+        '<div class="t-stat"><span class="label">24h</span><span class="value" id="t-' + t.id + '-change">—</span></div>' +
+        "</div>" +
+        (hasCa
+          ? '<a class="t-buy" href="https://jup.ag/swap/SOL-' + t.address + '" target="_blank" rel="noopener">Buy</a>'
+          : '<span class="t-buy disabled">Soon</span>');
+      grid.appendChild(card);
+
+      if (hasCa) {
+        card.querySelector(".t-ca").addEventListener("click", () => {
+          navigator.clipboard.writeText(t.address).then(() => toast(t.company + " contract copied"));
+        });
+      }
+    }
+  }
+
+  async function refreshTributes() {
+    const withCa = (cfg.tributes || []).filter((t) => t.address);
+    if (!withCa.length) return;
+    try {
+      const res = await fetch(
+        "https://api.dexscreener.com/latest/dex/tokens/" +
+          withCa.map((t) => t.address).join(",")
+      );
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      for (const t of withCa) {
+        const pairs = (data.pairs || []).filter(
+          (p) => p.baseToken?.address === t.address
+        );
+        const pair = pickPair(pairs);
+        if (!pair) continue;
+        $("t-" + t.id + "-price").textContent = fmtUsd(Number(pair.priceUsd));
+        $("t-" + t.id + "-mcap").textContent = fmtUsd(pair.marketCap ?? pair.fdv, { compact: true });
+        const ch = pair.priceChange?.h24;
+        const chEl = $("t-" + t.id + "-change");
+        chEl.textContent = fmtPct(ch);
+        chEl.classList.remove("up", "down");
+        if (ch > 0) chEl.classList.add("up");
+        if (ch < 0) chEl.classList.add("down");
+      }
+    } catch (err) {
+      /* mantem os tracos; tenta de novo no proximo ciclo */
+    }
+  }
+
   // ---------- dados ao vivo ----------
 
   let chartLoaded = false;
   let lastPrice = null;
 
+  const MAJOR_QUOTES = ["SOL", "WSOL", "USDC", "USDT"];
+
   function pickPair(pairs) {
     if (!pairs || !pairs.length) return null;
     const solana = pairs.filter((p) => p.chainId === "solana");
-    const pool = solana.length ? solana : pairs;
+    let pool = solana.length ? solana : pairs;
+    // pools cotados em SOL/USDC/USDT tem preco confiavel; pools cotados
+    // em tokens exoticos podem reportar preco/mcap distorcidos
+    const majors = pool.filter((p) =>
+      MAJOR_QUOTES.includes((p.quoteToken?.symbol || "").toUpperCase())
+    );
+    if (majors.length) pool = majors;
     const preferred = pool.filter((p) => p.dexId === cfg.preferredDex);
     const candidates = preferred.length ? preferred : pool;
     return candidates.sort(
@@ -132,6 +211,11 @@
   }
 
   applyConfig();
+  renderTributes();
   refresh();
-  setInterval(refresh, cfg.refreshMs);
+  refreshTributes();
+  setInterval(() => {
+    refresh();
+    refreshTributes();
+  }, cfg.refreshMs);
 })();
